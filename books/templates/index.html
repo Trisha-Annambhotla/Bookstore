@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favourite Books</title>
+    <!-- {% block title %}{% endblock %} -->
+    <link rel="stylesheet" href=" {% static 'styles.css' %}" >
+    
+</head>
+<body>
+    <h1>Hello there</h1>
+    <p>My name is Trisha Annambhotla and these are some of my favourite novels: </p>
+    <div class="topnav">
+        <a href="/">HOME</a> |
+        <a href="details/">BOOKS</a>
+      </div>
+      
+      <!-- {% block content %}
+      {% endblock %} -->
+    <ol>
+
+        {% csrf_token %}
+        {% for x in mybooks %}
+            <li><a href="details/{{x.id}}">{{x.Title}}</a></li>
+        {%endfor%}
+    </ol>
+       
+    
+</body>
+</html>
